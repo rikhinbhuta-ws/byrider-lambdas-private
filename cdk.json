@@ -1,0 +1,29 @@
+{
+  "app": "python3 infrastructure/aws/app.py",
+  "watch": {
+    "include": [
+      "**"
+    ],
+    "exclude": [
+      "README.md",
+      "cdk*.json",
+      "**/*.d.ts",
+      "**/*.js",
+      "node_modules",
+      "venv",
+      "*.pyc"
+    ]
+  },
+  "context": {
+    "@aws-cdk/aws-lambda:recognizeLayerVersion": true,
+    "@aws-cdk/aws-lambda:recognizeVersionProps": true,
+    "@aws-cdk/aws-cloudformation:crossRegionReferences": true,
+    "@aws-cdk/core:bootstrapQualifier": "hnb659fds",
+    "@aws-cdk/core:newStyleStackSynthesis": false,
+    "@aws-cdk/core:stackRelativeExports": true,
+    "@aws-cdk/aws-s3:serverAccessLogsUseBucketPolicy": true,
+    "@aws-cdk/aws-s3:createDefaultLoggingPolicy": true,
+    "localstack": true,
+    "@aws-cdk/core:assetHashSalt": "localstack"
+  }
+}

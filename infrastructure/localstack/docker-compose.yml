@@ -1,0 +1,26 @@
+services:
+  localstack:
+    image: localstack/localstack:latest
+    ports:
+      - "4566:4566"
+    environment:
+      - SERVICES=lambda,sns,sqs,logs,iam,s3,cloudformation,ssm
+      - DEBUG=1
+      - LAMBDA_EXECUTOR=docker
+      - DOCKER_HOST=unix:///var/run/docker.sock
+      - PERSISTENCE=1
+      - S3_USE_PATH_STYLE=1
+    volumes:
+      - "/var/run/docker.sock:/var/run/docker.sock"
+      - "./init:/etc/localstack/init/ready.d"
+      - localstack_data:/var/lib/localstack 
+
+    networks:
+      - localstack-net
+
+networks:
+  localstack-net:
+    driver: bridge
+
+volumes:
+  localstack_data:

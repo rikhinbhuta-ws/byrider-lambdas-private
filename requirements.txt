@@ -1,0 +1,8 @@
+boto3>=1.26.0
+requests>=2.28.0
+awscli>=1.25.0
+awscli-local>=0.20
+pytest>=7.0.0
+moto>=4.0.0
+aws-cdk-lib>=2.100.0
+constructs>=10.0.0
